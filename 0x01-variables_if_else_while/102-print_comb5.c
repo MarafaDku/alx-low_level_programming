@@ -1,41 +1,42 @@
-#include<stdio.h>
-/**
- * main - print two two digit combos
- * 
- * Return: 0
- */
-int main(void)
-{
-	int i = 0, j = 0;
-	int f, s, t, l;
+#include <stdio.h>
 
-	while (i < 100)
-	{
-		f = i / 10;
-		s = i % 10;
-		j = 0;
-		while (j < 100)
-		{
-			t = j / 10;
-			l = j % 10;
-			if (i < j && i != j)
-			{
-				putchar(f + '0');
-				putchar(s + '0');
-				putchar(' ');
-				putchar(t + '0');
-				putchar(l + '0');
-				if (i == 98 && j == 99)
-				{
-					break;
-				}
-				putchar(',');
-				putchar(' ');
-			}
-			j++;
-		}
-		i++;
-	}
-	putchar('\n');
-	return (0);
-}
+/*
+ *  * Description: 
+ *   * Return: 0
+ *   */
+
+int main(){
+
+    int a = 0;
+    int b;
+    int c;
+    while (a < 10)
+    {
+            b = 0;
+            while (b < 10)
+            {
+	                c=0;
+	                while (c < 10)
+	                {
+			                
+			                if (!(a==b || b==c || a==c) && (a < b && b < c))
+			                {
+					                    putchar('0' + a);
+					                    putchar('0' + b);
+					                    putchar('0' + c);
+					                    if (!(a==7 && b==8 && c==9))
+					                    {
+							                            putchar(',');
+							                            putchar(' ');
+							                        }
+					                }             
+			                
+			                c++;
+			            }
+	                b++;
+	            }
+            a++;
+        }
+    
+    return (0);
+}}
