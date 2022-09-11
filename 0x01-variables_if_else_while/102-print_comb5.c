@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /*
- *  * Description: 
- *   * Return: 0
- *   */
+ * Description: 
+ * Return: 0
+*/
 
 int main(){
 
@@ -12,31 +12,31 @@ int main(){
     int c;
     while (a < 10)
     {
-            b = 0;
-            while (b < 10)
+        b = 0;
+        while (b < 10)
+        {
+            c=0;
+            while (c < 10)
             {
-	                c=0;
-	                while (c < 10)
-	                {
-			                
-			                if (!(a==b || b==c || a==c) && (a < b && b < c))
-			                {
-					                    putchar('0' + a);
-					                    putchar('0' + b);
-					                    putchar('0' + c);
-					                    if (!(a==7 && b==8 && c==9))
-					                    {
-							                            putchar(',');
-							                            putchar(' ');
-							                        }
-					                }             
-			                
-			                c++;
-			            }
-	                b++;
-	            }
-            a++;
+                
+                if (!(a==b || b==c || a==c) && (a < b && b < c))
+                {
+                    putchar('0' + a);
+                    putchar('0' + b);
+                    putchar('0' + c);
+                    if (!(a==7 && b==8 && c==9))
+                    {
+                        putchar(',');
+                        putchar(' ');
+                    }
+                }             
+                
+                c++;
+            }
+            b++;
         }
+        a++;
+    }
     
     return (0);
-}}
+}
