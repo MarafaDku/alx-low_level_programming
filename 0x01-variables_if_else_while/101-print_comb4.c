@@ -1,40 +1,53 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
- * main - program that prints all possible different combinations of
- * three digits
- * Numbers must be separated by ,followed by a space
+ * main - main block
+ * Description: Write a program that prints all possible
+ * different combinations of two digits
+ * Numbers must be separated by ,, followed by a space
  * The two digits must be different
- * 012, 120, 102, 021, 201, 210 are considered the same combination
+ * 01 and 10 are considered the same combination of the two digits 0 and 1
+ * Print only the smallest combination of two digits
+ * Numbers should be printed in ascending order, with two digits
+ * You can only use the putchar function
+ * (every other function (printf, puts, etc…) is forbidden)
+ * You can only use putchar five times maximum in your code
+ * You are not allowed to use any variable of type char
+ * All your code should be in the main function
  * Return: 0
  */
-
 int main(void)
 {
-	int n1 = 48;
-	int n2, n3;
-	int com = 44;
+	int c;
+	int d;
+	int e = 0;
 
-	while (n1 <= 57)
+	while (e < 10)
 	{
-		n2 = n1 + 1;
-		while (n2 <= 57)
+		d = 0;
+		while (d < 10)
 		{
-			n3 = n2 + 1;
-			while (n3 <= 57)
+			c = 0;
+			while (c < 10)
 			{
-				putchar(n1);
-				putchar(n2);
-				putchar(n3);
-				if (n1 != 55 || n2 != 56 || n3 != 57)
-					putchar(com);
-					putchar(32);
+				if (c != d && d != e && e < d && d < c)
+				{
+					putchar('0' + e);
+					putchar('0' + d);
+					putchar('0' + c);
+
+					if (c + d + e != 9 + 8 + 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
-				n3 += 1;
+
+				c++;
 			}
-			n2 += 1;
+			d++;
 		}
-		n1 += 1;
+		e++;
 	}
 	putchar('\n');
 	return (0);
