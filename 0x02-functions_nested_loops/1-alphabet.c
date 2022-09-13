@@ -1,19 +1,15 @@
-#include "holberton.h"
-
+#include"main.h"
 
 /**
- * print_alphabet - print alphabet a-z
- *
- * Return: 0
- */
+ * print_alphabet - utilizes on the _putchar function to print
+ *                 the alphabet a - z
+*/
+
 void print_alphabet(void)
 {
-	int l = 'a';
+	int ch;
 
-	while (l <= 'z')
-	{
-		_putchar(l);
-		l++;
-	}
+	for (ch = 'a'; ch <= 'z'; ++ch)
+		_putchar(ch);
 	_putchar('\n');
 }
