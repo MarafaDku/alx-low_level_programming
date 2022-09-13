@@ -1,28 +1,23 @@
-#include "holberton.h"
+#include"main.h"
 
 /**
- * jack_bauer - print every minute of a 24 hour period
- *
- * Return: Nothing
- */
+ * jack_bauer- prints every minute of the day
+*/
+
 void jack_bauer(void)
 {
-	int h, m;
+	int min, hr;
 
-	h = m = 0;
-	while (h < 24)
+	for (hr = 0; hr <= 23; ++hr)
 	{
-		m = 0;
-		while (m < 60)
+		for (min = 0; min <= 59; ++min)
 		{
-			_putchar((h / 10) + '0');
-			_putchar((h % 10) + '0');
+			_putchar((hr / 10) + 48);
+			_putchar((hr % 10) + 48);
 			_putchar(':');
-			_putchar((m / 10) + '0');
-			_putchar((m % 10) + '0');
+			_putchar((min / 10) + 48);
+			_putchar((min % 10) + 48);
 			_putchar('\n');
-			m++;
 		}
-		h++;
 	}
 }
