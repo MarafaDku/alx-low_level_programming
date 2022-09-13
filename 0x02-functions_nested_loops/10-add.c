@@ -1,11 +1,17 @@
+#include"main.h"
+
 /**
- * add - add two given integers
- * @n1: the first integer
- * @n2: the second integer
+ * add - add two integers
  *
- * Return: Return the sum of n1 & n2
- */
-int add(int n1, int n2)
+ * @a: first input
+ * @b: second input
+ *
+ * Return: sum of a & b
+*/
+
+int add(int a, int b)
 {
-	return (n1 + n2);
+	int sum = a + b;
+
+	return (sum);
 }
