@@ -1,22 +1,18 @@
-#include "mainn.h"
-#include <stdio.h>
-
 /**
- * main - check the code for ALX School students.
+ * _memcpy - function that copies memory area
  *
- * Return: Always 0.
+ * @dest: buffer where we will copy to
+ * @src: what we are to copy
+ * @n: n bytes of @src
+ *
+ * Return: Always 0 (Success)
 */
 
-int main(void)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *s = "hello";
-	char *f;
+	unsigned int i;
 
-	f = _strchr(s, 'l');
-
-	if (f != NULL)
-	{
-		printf("%s\n", f);
-	}
-	return (0);
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	return (dest);
 }

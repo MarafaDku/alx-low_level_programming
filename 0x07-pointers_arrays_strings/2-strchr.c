@@ -1,22 +1,23 @@
-#include "mainn.h"
-#include <stdio.h>
-
+#include "main.h"
+#include <stddef.h>
 /**
- * main - check the code for ALX School students.
+ * _strchr - locates a character in a string
+ * @s: the string
+ * @c: the character
  *
- * Return: Always 0.
-*/
-
-int main(void)
+ * Return: a pointer to a character aka the character found
+ */
+char *_strchr(char *s, char c)
 {
-	char *s = "hello";
-	char *f;
+	int i;
 
-	f = _strchr(s, 'l');
-
-	if (f != NULL)
+	for (i = 0; s[i] >= '\0' ; i++)
 	{
-		printf("%s\n", f);
+		if (s[i] == c)
+		{
+			return (&s[i]);
+		}
 	}
+
 	return (0);
 }
