@@ -13,7 +13,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	/**
-	 * we initialize a helping variables
+	 * we initialize a helping variable
 	 * to assist in returning one of
 	 * our parameters pointers haystack
 	*/
