@@ -1,57 +1,51 @@
-#include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
-/**
-  *_strlen - counts and returns string length
-  * @s: that's the string
-  *
-  * Return: the length
-  */
-int _strlen(char *s)
-{
-int counter = 0;
 
-if (!*s)
-	return (0);
-while (*s)
-{
-	counter++;
-	s++;
-}
-return (counter);
-}
 /**
- * string_nconcat - concats 2 strings
- * @s1: the first str
- * @s2: the second str
- * @n: how much of s2 to add
- * Return: ptr to new string
- */
+ * string_nconcat - function that concatenates two strings
+ *
+ * @s1: string 1
+ * @s2: string 2
+ * @n: bytes of @s2 to add to @s1 to be a new string
+ *
+ * Return: new string followed by the first @n bytes
+ *         of string 2 @s2 or NULL
+*/
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *new;
-	int total = 0;
-	int i;
-	int j = 0;
+	unsigned int l1, l2, i, j;
+	char *str;
 
-	if (!s1)
+	/*treat NULL as empty string*/
+	if (s1 == NULL)
 		s1 = "";
-	if (!s2)
+	if (s2 == NULL)
 		s2 = "";
-	total += _strlen(s1) + n;
-	new = malloc((total * sizeof(char)) + 1);
-	if (new == NULL)
-	{
+
+	l1 = l2 = 0;
+	/*length of both s1 & s2 respectively*/
+	while (s1[l1] != '\0')
+		l1++;
+	while (s2[l2] != '\0')
+		l2++;
+
+	/*set n to length of s2*/
+	if (n >= l2)
+		n = l2;
+
+	str = (char *) malloc((l1 + n + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
-	}
-	for (i = 0; s1[i]; i++)
+
+	/*add s1 to str*/
+	for (i = 0; s1[i] != '\0'; i++)
+		str[i] = s1[i];
+	/*add s2 n bytes to str*/
+	for (j = 0; j < n && s2[j] != '\0'; j++)
 	{
-		new[i] = s1[i];
+		str[i] = s2[j];
+		i++;
 	}
-	for (; n || !s2; n--, i++, j++)
-	{
-		new[i] = s2[j];
-	}
-	new[i] = '\0';
-	return (new);
+	str[i] = '\0';
+	return (str);
 }

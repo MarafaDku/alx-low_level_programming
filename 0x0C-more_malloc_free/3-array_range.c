@@ -1,27 +1,30 @@
-#include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
+
 /**
- * array_range -a function that creates an array of integers
- * @min: lower end of values
- * @max: upper end
- * Return: int *
- */
+ * array_range - creates an array of integers
+ *
+ * @min: min number of elements
+ * @max: max number of elements
+ *
+ * Return: array pointer address
+ *         NULL if it fails
+*/
+
 int *array_range(int min, int max)
 {
-	int *babyarray;
-	int i;
+	int i, *array;
 
 	if (min > max)
 		return (NULL);
-	babyarray = malloc(sizeof(int) * (max - min + 1));
-	if (babyarray == NULL)
+
+	array = malloc((max - min + 1) * sizeof(int));
+	if (array == NULL)
 		return (NULL);
+
 	for (i = 0; min <= max; i++)
 	{
-		babyarray[i] = min;
+		array[i] = min;
 		min++;
 	}
-	return (babyarray);
-
+	return (array);
 }
