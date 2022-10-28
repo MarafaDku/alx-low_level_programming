@@ -1,39 +1,21 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
-  * print_binary - Prints the binary representation of a number
-  * @n: The number to representing in binary
-  *
-  * Return: Nothing
-  */
+ * print_binary - Prints an unsigned long int as binary
+ * @n: The number to be printed
+ */
 void print_binary(unsigned long int n)
 {
-	if (n == 0)
-	{
+	unsigned long int mask = 1UL << ((sizeof(unsigned long int)
+				* CHAR_BIT) - 1);
+
+	while ((mask & n) == 0 && mask != 0)
+		mask = mask >> 1;
+
+	if (mask == 0)
 		_putchar('0');
-		return;
-	}
 
-	_divide(n);
-}
+	for (; mask != 0; mask = mask >> 1)
+		_putchar((mask & n) ? '1' : '0');
 
-/**
-  * _divide - ...
-  * @n: ...
-  *
-  * Return: ...
-  */
-void _divide(unsigned long int n)
-{
-	if (n < 1)
-		return;
-
-	_divide(n >> 1);
-
-	if (n & 1)
-		_putchar('1');
-	else
-		_putchar('0');
 }
